@@ -5,6 +5,11 @@ let numberOfCols=120;
 
 let animator=undefined;
 
+const gameOver=function () {
+  clearInterval(animator);
+  showGameOver();
+}
+
 const showGameOver=function () {
   console.log('gameOver');
   let gameOver=document.getElementById('gameOver');
@@ -21,8 +26,7 @@ const animateSnake=function() {
   unpaintSnake(oldTail);//removing the last tail
   paintHead(head);//getting the new red head
   if(snake.isTouchedToWall() || snake.isEatingItself()){
-    clearInterval(animator);
-    showGameOver();
+    gameOver();
   }
   if(head.isSameCoordAs(food)) {//eat the food
     snake.grow();
@@ -63,6 +67,7 @@ const createSnake=function() {
 
 const createFood=function(numberOfRows,numberOfCols) {
   food=generateRandomPosition(numberOfCols,numberOfRows);
+  console.log(food);
 }
 
 const startGame=function() {
