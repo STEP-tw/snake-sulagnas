@@ -34,8 +34,8 @@ const drawSnake=function(snake) {
     paintBody(pos);
   });
   paintHead(snake.getHead());
-}
+}//drawing the snake ultimately
 
 const drawFood=function(food) {
   paintCell(food,"food");
-}
+}//generating the food
