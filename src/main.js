@@ -16,14 +16,11 @@ const animateSnake=function() {
   paintBody(oldHead);//getting the black body
   unpaintSnake(oldTail);//removing the last tail
   paintHead(head);//getting the new red head
-  if(snake.isTouchedToWall() || snake.isOverLapping()){
+  if(snake.isTouchedToWall() || snake.isEatingItself()){
     clearInterval(animator);
     showGameOver();
   }
   if(head.isSameCoordAs(food)) {//eat the food
-    console.log(snake.head);
-    console.log(snake.body);
-    console.log('==========');
     snake.grow();
     createFood(numberOfRows,numberOfCols);
     drawFood(food);

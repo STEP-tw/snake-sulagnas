@@ -25,13 +25,13 @@ Snake.prototype={
     this.head=this.head.turnRight();
   },
   isTouchedToWall:function () {
-    let touchInEast = (snake.head.direction=='east' && snake.head.x==119);
-    let touchInWest = (snake.head.direction=='west' && snake.head.x==0);
-    let touchInNorth = (snake.head.direction=='north' && snake.head.y==0);
-    let touchInSouth = (snake.head.direction=='south' && snake.head.y==59);
+    let touchInEast = (this.head.direction=='east' && this.head.x==119);
+    let touchInWest = (this.head.direction=='west' && this.head.x==0);
+    let touchInNorth = (this.head.direction=='north' && this.head.y==0);
+    let touchInSouth = (this.head.direction=='south' && this.head.y==59);
     return touchInEast||touchInWest||touchInNorth||touchInSouth;
   },
-  isOverLapping:function () {
-
+  isEatingItself:function () {
+    
   }
 }
