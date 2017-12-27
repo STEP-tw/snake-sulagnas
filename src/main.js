@@ -7,6 +7,10 @@ let animator=undefined;
 
 const showGameOver=function () {
   console.log('gameOver');
+  let gameOver=document.getElementById('gameOver');
+  let restart=document.getElementById('restart');
+  gameOver.style.visibility='visible';
+  restart.style.visibility='visible';
 }
 
 const animateSnake=function() {
