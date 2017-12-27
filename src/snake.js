@@ -32,6 +32,10 @@ Snake.prototype={
     return touchInEast||touchInWest||touchInNorth||touchInSouth;
   },
   isEatingItself:function () {
-    
+    let snakeHeadX=snake.head.x;
+    let snakeHeadY=snake.head.y;
+    return snake.body.some(function (element) {
+      return element.x==snakeHeadX && element.y==snakeHeadY;
+    })
   }
 }
