@@ -24,12 +24,16 @@ Snake.prototype={
   turnRight:function() {
     this.head=this.head.turnRight();
   },
-  isTouchedToWall:function () {
+  getPositionAndDirection:function () {
     let touchInEast = (this.head.direction=='east' && this.head.x==119);
     let touchInWest = (this.head.direction=='west' && this.head.x==0);
     let touchInNorth = (this.head.direction=='north' && this.head.y==0);
     let touchInSouth = (this.head.direction=='south' && this.head.y==59);
     let hittingConditionList=[touchInEast,touchInWest,touchInNorth,touchInSouth];
+    return hittingConditionList;
+  },
+  isTouchedToWall:function () {
+    let hittingConditionList=this.getPositionAndDirection();
     return hittingConditionList.some(function (condition) {
       return condition;
     })
